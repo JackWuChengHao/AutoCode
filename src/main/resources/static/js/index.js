@@ -92,7 +92,7 @@ function init_chart(x_axis,x_data){
     media: [ // 这里定义了 media query 的逐条规则。
         {
             query: {
-            	maxWidth: 500
+            	maxWidth: 700
             },   // 这里写规则。
             option: {  
             	title: {
