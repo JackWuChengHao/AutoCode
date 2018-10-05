@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -37,7 +38,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import CodeForFuture.AutoCode.Service.FileService;
 import CodeForFuture.AutoCode.Service.GeneratorCode;
+import CodeForFuture.AutoCode.Service.Impl.StatisticsServiceImpl;
 import CodeForFuture.AutoCode.entity.DataSourceInfo;
+import CodeForFuture.AutoCode.entity.Statistics;
 import CodeForFuture.AutoCode.entity.Table;
 
 @Controller
@@ -53,6 +56,9 @@ public class DataSourceController {
 	
 	@Autowired
 	private FileService fs;
+	
+	@Autowired
+	private StatisticsServiceImpl iss;
 	
 	@GetMapping("/gettables")
 	@ResponseBody
@@ -145,7 +151,7 @@ public class DataSourceController {
 		
 		return mapper.writeValueAsString(gecd.run());
 	}
-
+	
 	@PostMapping("/datasourceinfo")
 	public String  getDataSource(@ModelAttribute DataSourceInfo dsi,Model  model,HttpSession session){
 
@@ -168,8 +174,18 @@ public class DataSourceController {
 	@GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-
+		
+		QueryWrapper<Statistics> qw =  new QueryWrapper<Statistics>();
+		qw.eq("function","dao");
+		
+		Statistics statics = iss.getOne(qw);
+		
+		statics.setStatistics(statics.getStatistics()+1);
+		
+		iss.updateById(statics);
+		
         Resource file = fs.loadAsResource(filename);
+        
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }

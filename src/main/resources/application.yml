@@ -23,5 +23,13 @@ spring:
     cache-period: 0
   template:
       cache: false
+      
+  datasource:
+    url: jdbc:mysql://140.143.234.38:3306/autocode
+    username: root
+    password: sDXAsv6R2n5t
+    driver-class-name: com.mysql.jdbc.Driver
+#  mybatis:
+#    mapperLocations: classpath:CodeForFuture/AutoCode/mapper/xml/*.xml
 server:
   port: 8070
