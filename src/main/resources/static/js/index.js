@@ -56,13 +56,14 @@ function init_chart(x_axis,x_data){
 
     // 指定图表的配置项和数据
     var option = {
+    	baseOption:{
     		itemStyle:{  
                 normal:{  
                     color:'#000000',  
                   },
         },
         title: {
-            text: '自动代码生成数量统计'
+            text: '自动代码生成数量统计',
         },
         tooltip: {},
         legend: {
@@ -86,7 +87,30 @@ function init_chart(x_axis,x_data){
                     }
                 }
           	},
-        }]
+        }],
+    },
+    media: [ // 这里定义了 media query 的逐条规则。
+        {
+            query: {
+            	maxWidth: 500
+            },   // 这里写规则。
+            option: {  
+            	title: {
+                    text: '自动代码生成数量统计',
+//                    top:'90%',
+                    left:'30%'
+                    
+                },
+                legend: {
+                	   right: 'right',              // legend 放置在右侧中间。
+                	   top: 'middle',
+                       orient: 'vertical' 
+                },
+            }
+        },
+       
+    ]
+        
     };
 
     // 使用刚指定的配置项和数据显示图表。
