@@ -32,4 +32,4 @@ spring:
 #  mybatis:
 #    mapperLocations: classpath:CodeForFuture/AutoCode/mapper/xml/*.xml
 server:
-  port: 8070
+  port: 80
