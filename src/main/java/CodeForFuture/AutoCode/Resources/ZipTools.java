@@ -32,11 +32,12 @@ public final class ZipTools {
 		if (!zipFile.getParentFile().exists()) {
 			zipFile.getParentFile().mkdirs();
 		}
+		
 		zipFile.delete();
 		try {
 			out = new FileOutputStream(zipFile);
 		} catch (FileNotFoundException e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		}
 		bos = new BufferedOutputStream(out);
 		zaos = new ZipArchiveOutputStream(bos);
@@ -79,6 +80,5 @@ public final class ZipTools {
 		tempbos.flush();
 		tempbos.close();
 	}
-
 
 }

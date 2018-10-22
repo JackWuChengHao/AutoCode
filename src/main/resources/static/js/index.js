@@ -20,8 +20,8 @@ $(document).ready(function(){
 
 			for(var i = 0;i < length;i++){
 
-				x_axis[i] = data[0]["function"];
-				x_data[i] = data[0]["statistics"];
+				x_axis[i] = data[i]["function"];
+				x_data[i] = data[i]["statistics"];
 
 			}
 

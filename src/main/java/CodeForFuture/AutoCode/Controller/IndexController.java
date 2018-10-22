@@ -48,13 +48,7 @@ public class IndexController {
 		
 		QueryWrapper<Statistics> qw =  new QueryWrapper<Statistics>();
 		
-		qw.eq("function","dao");
-		
-		Statistics statics = iss.getOne(qw);
-		
-		List<Statistics> list_statics = new ArrayList<Statistics>();
-		
-		list_statics.add(statics);
+		List<Statistics> list_statics = iss.list(qw);;
 		
 		ObjectMapper mapper = new ObjectMapper();
 		

@@ -5,8 +5,8 @@
 </head>
 <style>
   body{
-  	padding-top:75px;
-    padding-bottom:75px;
+  	padding-top:150px;
+    padding-bottom:150px;
   }
 </style>
 
@@ -17,8 +17,15 @@
 		</table>
 		<div class="form-group">
 			<label for="packagename">包名</label> 
-			<input type="text" class="form-control" name="packagename" id="packagename" placeholder="Enter PackageName">
-			<small id="datasource_address_help" class="form-text text-muted">将会生成 controller、entity、mapper、mapper_xml、serveice、service_impl 在该包下，依赖于mybatis-puls.</small>
+			<input type="text" class="form-control" name="packagename" id="packagename" placeholder="输入包名">
+			<small id="datasource_address_help" class="form-text text-muted">将会生成 controller、entity、mapper、mapper_xml、serveice、service_impl 在该包下，依赖于mybatis-puls.
+			<br>
+		&lt;dependency&gt;<br>
+		&nbsp;	&lt;groupId&gt;com.baomidou&lt;/groupId&gt;<br>
+		&nbsp;	&lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;<br>
+		&nbsp;	&lt;version&gt;3.0.1&lt;/version&gt;<br>
+		&lt;/dependency&gt;<br>
+			</small>
 		</div>
 		<button type="button" id="submitGenerateInfo"class="btn btn-dark">生成代码</button>
 	</div>

@@ -1,4 +1,8 @@
 spring:
+  activemq:
+    brokerUrl: tcp://140.143.234.38:61616
+    user: admin
+    password: admin
   mvc:
     favicon:
       enabled: false 
@@ -29,7 +33,29 @@ spring:
     username: root
     password: sDXAsv6R2n5t
     driver-class-name: com.mysql.jdbc.Driver
-#  mybatis:
-#    mapperLocations: classpath:CodeForFuture/AutoCode/mapper/xml/*.xml
+
+#    in-memory: true
+#    pool:
+#      enabled: false
+#  jms:
+#    pub-sub-domain: false
+#  redis:
+#    database: 0
+#    host: 140.143.234.38
+#    port: 6379
+#    timeout: 0
+ #   pool: 
+#      max-active: 8
+#      max-wait: -1
+#      max-idle: 8
+#      min-idle: 0
+#  jms:
+#    pub-sub-domain: false   # 配置消息的类型，如果是true则表示为topic消息，如果为false表示Queue消息
+#  activemq:
+#    broker-url: tcp://140.143.234.38:61616
+#    in-memory: true
+#    pool: 
+#      enabled: false
+    
 server:
   port: 80

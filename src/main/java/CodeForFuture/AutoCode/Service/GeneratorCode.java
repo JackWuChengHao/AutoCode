@@ -114,7 +114,7 @@ public class GeneratorCode {
 			FileSystemUtils.deleteRecursively(new File(GolbalConfig.Generator_Dir.getContext()+uuid));
 
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		}
 
 		return uuid;

@@ -64,7 +64,7 @@ function sendGenerateInfo(){
 		    animation: false,
 		    confirmButtonColor: '#343a40',
 		    animation: false,
-		    customClass: 'animated shake'
+		    customClass: 'animated jello'
 		})
 		return;
    }else{  
@@ -80,7 +80,7 @@ function sendGenerateInfo(){
 		    animation: false,
 		    confirmButtonColor: '#343a40',
 		    animation: false,
-		    customClass: 'animated shake'
+		    customClass: 'animated jello'
 		})
 		return;
 	}

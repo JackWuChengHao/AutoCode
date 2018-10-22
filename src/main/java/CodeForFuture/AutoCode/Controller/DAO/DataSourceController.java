@@ -73,7 +73,7 @@ public class DataSourceController {
 		try {
 			prop.load(fis);
 		} catch (IOException e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		}
 		prop.setProperty("com.mysql.jdbc.Driver", session.getAttribute("driver").toString());
 
@@ -102,15 +102,15 @@ public class DataSourceController {
 			}
 
 		} catch (SQLException e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		}finally {
 			if(conn != null) {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				logger.error(e);
+				logger.error(e.getMessage(),e);
 			}
 			}
 		}
@@ -118,7 +118,7 @@ public class DataSourceController {
 		try {
 			return mapper.writeValueAsString(tables);
 		} catch (JsonProcessingException e) {
-			logger.error(e);
+			logger.error(e.getMessage(),e);
 		}
 		return null;
 	}
